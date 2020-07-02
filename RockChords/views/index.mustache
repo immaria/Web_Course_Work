@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+{{>head}} {{>header}}
+<script src="/javascripts/script1.js"></script>
+<link rel="stylesheet" href="stylesheets/style.css">
+<body>
+  <div class="jumbotron h-center jumbo">
+    <div class="container abs-content">
+      <div>
+        <div class="media-left media-middle hidden-xs">
+          <img class="media-object img-circle" src="/images/logo.png" alt="logo" width="300">
+        </div>
+        <div class="media-body" style="border-left: 8px solid #797d81; padding-left: 30px;">
+          <h1>Dear visitor!</h1>
+          <h2>Welcome to the best website of guitar training for beginners, where everyone can learn how to play guitar from
+            scratch.
+          </h2>
+          <p>
+            <button class="btn btn-outline-secondary my-4" onclick="location.href='/auth/register'" type="submit">Join the RockChords</button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{>footer}}
+</body>
+
+</html>

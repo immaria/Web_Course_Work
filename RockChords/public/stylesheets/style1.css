@@ -1,0 +1,322 @@
+body {
+    background-color: dimgrey;
+    background-size: 100%;
+}
+
+.page {
+    width: 1200px;
+    margin: auto;
+}
+
+.page>div {
+    margin: 20px;
+    padding: 10px;
+}
+
+.header {
+    text-align: center;
+    display: flex;
+}
+
+.header img#logo {
+    height: 220px;
+    width: 220px;
+}
+
+.header img#questions {
+    height: 220px;
+    width: 350px;
+}
+
+.footer {
+    position: fixed;
+    top: 850px;
+    width: 1200px;
+    border: 2px solid rgb(136, 136, 136);
+    margin: 0;
+    padding: 0;
+}
+
+.footer>p {
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.content>.about {
+    color: rgb(255, 255, 255);
+    font-size: 55px;
+}
+
+.header h1 {
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    font-size: 55px;
+    margin: auto;
+}
+
+.page>.menu {
+    float: left;
+    color: rgb(99, 120, 151);
+    font-size: 20px;
+}
+
+a {
+    color: rgb(0, 0, 0);
+}
+
+.page>.content {
+    width: 70%;
+    float: right;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    text-align: left;
+    left: 10px;
+}
+
+.content table {
+    width: 100%;
+    font-size: 20px;
+    border: 20px black;
+    border-collapse: collapse;
+}
+
+.content tr td {
+    padding: 10px 0;
+}
+
+.content form {
+    color: black;
+    text-align: left;
+}
+
+.pagination {
+    position: relative;
+    top: 400px;
+    bottom: 5px;
+    width: 400px;
+    left: 400px;
+}
+
+
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: dimgrey;
+}
+
+.menu li a {
+    display: block;
+    color: rgb(0, 0, 0);
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color on hover */
+
+.menu li a:hover {
+    background-color: rgb(73, 73, 73);
+    color: white;
+}
+
+.active {
+    background-color: #505050;
+    color: white;
+}
+
+.active a {
+    color: white;
+}
+
+/* -------------Menuu------------------*/
+
+/* -------------Tablee------------------*/
+
+content>.table>.table-fill {
+    background: white;
+    border-radius: 3px;
+    border-collapse: collapse;
+    height: 320px;
+    margin: auto;
+    max-width: 600px;
+    padding: 5px;
+    width: 100%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    animation: float 5s infinite;
+}
+
+th {
+    color: rgb(255, 255, 255);
+    background: #505050;
+    font-size: 23px;
+    font-weight: 100;
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+tr:hover td {
+    background: rgb(143, 143, 143);
+    color: #FFFFFF;
+    border-top: 1px solid #22262e;
+}
+
+td {
+    background: #FFFFFF;
+    padding: 20px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 300;
+    font-size: 18px;
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid #C1C3D1;
+}
+
+/* -------------Tablee------------------*/
+
+/* -------------users search------------------*/
+
+.users .search-container {
+    float: right;
+}
+
+.users input[type=text] {
+    padding: 12px;
+    font-size: 15px;
+    border: none;
+}
+
+.users .search-container button {
+    float: right;
+    padding: 13px 10px;
+    background: #ddd;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.users .search-container button:hover {
+    background: #ccc;
+}
+
+/* -------------users search------------------*/
+
+/* -------------chords search------------------*/
+
+.form-search {
+    display: inline-block;
+    border-bottom: 1px solid;
+}
+
+.form-search input {
+    all: unset;
+    padding: 2px;
+    font-size: 20px;
+    border: none;
+}
+
+.newChord button {
+    background-color: rgb(255, 255, 255);
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    float: right;
+}
+
+.newChord button:hover {
+    background: #ccc;
+}
+
+.deleteChord button {
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    float: right;
+    margin: 21px;
+}
+
+.deleteChord button:hover {
+    background: #ccc;
+}
+
+
+
+/* -------------chords search------------------*/
+
+/* -------------User page------------------*/
+
+.content>.userInfo {
+    padding-left: 300px;
+    padding-block-start: 35px;
+    font-size: 25px;
+}
+
+.userInfo b {
+    text-align: center;
+}
+
+.content div {
+    padding-left: 270px;
+    padding-block-start: 5px;
+    right: 100px;
+}
+
+.content img#ava {
+    height: 210px;
+    width: 200px;
+    float: left;
+    border-radius: 5px 5px 0 0;
+}
+
+.content img#chord {
+    height: 210px;
+    width: 200px;
+    float: left;
+    border-radius: 5px 5px 0 0;
+}
+
+.content>.card {
+    /* Add shadows to create the "card" effect */
+    padding: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    height: 200px;
+    width: 700px;
+}
+
+/* On mouse-over, add a deeper shadow */
+
+.content>.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.content>.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    /* 5px rounded corners */
+}
+
+/* -------------User page------------------*/
+
+.content>.tabInfo {
+    padding-left: 50px;
+    padding-block-start: 35px;
+    font-size: 25px;
+}
+
+.tabInfo b {
+    text-align: center;
+}
+
+.content .tabInfo div {
+    padding-left: 20px;
+    padding-block-start: 5px;
+    right: 100px;
+}

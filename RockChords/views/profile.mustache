@@ -1,0 +1,80 @@
+{{>head}}
+<script src="/javascripts/script1.js"></script>
+<link rel="stylesheet" href="stylesheets/style.css">
+
+<body style="background-color: #dde1e6">
+    <div class="page" style="background-color: #dde1e6">
+        {{>header}}
+        <div class="container" style="margin-top:100px">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <div class="row">
+                        <b></b>
+                        <div class="col">
+                            <h1 class="display-4 float-left">My account</h1>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-outline-danger float-right" data-toggle="modal" data-target="#exampleModal">
+                                Delete account
+                            </button>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Wait!</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Are you sure?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form action="/users/{{user._id}}/delete" method="POST" enctype="multipart/form-data">
+                                                <input type="hidden" name="deleted" value="5c0bd7601cf9d00016176b1b">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                <button class="btn btn-outline-danger" type="submit">Delete</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row my-2 row justify-content-center">
+                        <div class="col-4">
+                            <img width="300" height="300" class="my-4 center-cropped rounded-circle" src={{user.imageUrl}} alt="User">
+                        </div>
+                        <div class="col md-auto ml-3">
+                            <form action="/profile/{{user._id}}/update" method="POST" enctype="multipart/form-data">
+                                <div class="form-group my-4">
+                                    <label>Login</label>
+                                    <input type="text" name="login" class="form-control" value={{user.login}}>
+                                </div>
+                                <div class="form-group my-4">
+                                    <label>Full name</label>
+                                    <input type="text" name="fullname" class="form-control" value={{user.fullname}}>
+                                </div>
+                                <div class="form-group">Role
+                                    <p class="text-success">Simple user</p>
+                                </div>
+                                <label>Select new avatar</label>
+                                <div class="custom-file">
+                                    <input type="file" name="image" class="custom-file-input" id="customFile">
+                                    <label class="custom-file-label" for="customFile">Choose new picture...</label>
+                                </div>
+                                <button class="btn btn-outline" type="submit">Update</button>
+                                <button class="btn btn-outline " type="reset">Reset</button>
+                                <form>
+                        </div>
+                        <!-- <form action="/users/{{userRequired._id}}/update" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="updated" value="5c0bd7601cf9d00016176b1b">
+                        <button class="btn btn-outline " type="submit">Update</button>
+                        <button class="btn btn-outline " type="reset">Reset</button>
+                </div> -->
+
+                    </div>
+                    </form>
+</body>
+
+</html>

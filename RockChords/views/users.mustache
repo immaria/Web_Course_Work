@@ -1,0 +1,72 @@
+{{>head}}
+<script src="/javascripts/script1.js"></script>
+<link rel="stylesheet" href="stylesheets/style.css">
+
+<body>
+  <div class="page">
+    {{>header}}
+    <div class="container" style="margin-top:100px">
+      <form action="/users">
+        <div class="input-group my-1">
+          <div class="input-group-prepend">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </div>
+          <input type="search" name="byFilter" class="form-control" placeholder="Enter user login..." aria-label="" aria-label="Search">
+        </div>
+      </form>
+      {{^users.length}}
+      <span>
+        It seems this user doesn`t exist :(
+      </span>
+      {{/users.length}}
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <h1 class="display-5">Users</h1>
+          {{#users}}
+          <div class="list-group list-group-flush">
+            <!-- <a href="users/5c0bd7601cf9d00016176b1b" class="list-group-item list-group-item-action"> -->
+            <div class="list-group-item list-group-item-action">
+              <img width="100" height="100" class="my-2 ml-2 center-cropped rounded-circle float-left" src={{imageUrl}}>
+              <div class="float-left mt-13 ml-3">
+                <div class="mt-3">{{login}}</div>
+                <button class="btn btn-outline-secondary my-1 mr-2" onclick="location.href=`/users/{{id}}`">Details</button>
+              </div>
+            </div>
+          </div>
+          {{/users}}
+
+          <!-- <div class="text-center">
+            <div class="btn-group btn-group mt-4" role="group" aria-label="Page switcher">
+              <button type="button" onclick="location.href='/users'" class="btn btn-outline-secondary">
+                Prev
+              </button>
+
+              <button type="button" onclick="location.href='/users?page&#x3D;2'" class="btn btn-outline-secondary">
+                Next
+              </button>
+            </div>
+          </div> -->
+          <div class="text-center">
+              <div class="btn-group btn-group mt-4" role="group" aria-label="Page switcher">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                <a class='messages-nav-button' href="/users?page={{prevPage}}" name="page" value={{prevPage}}>
+                  <button type="button" onclick="location.href='/users'" class="btn btn-outline-secondary">
+                    Previous</button></a>
+                  {{#items}}
+                  <a class='messages-nav-button' href="/users?page={{.}}"></a>
+                  </li>
+                  <button type="button" onclick="location.href='/users?page={{.}}'" class="btn btn-outline-secondary">{{.}}</button>
+                  {{/items}}
+                  <a class='messages-nav-button' href="/users?page={{nextPage}}" name="page" value={{nextPage}}>
+                    <button type="button" onclick="location.href='/users'" class="btn btn-outline-secondary">Next</button></a>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+      {{> footer}}
+</body>
+
+</div>
+</body>

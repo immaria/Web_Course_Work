@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">
+    <img id="logo" src="/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="Logo RockChords"> RockChords
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      {{#user}}
+      <li class="nav-item">
+        <a class="nav-link" href="/chords?page=1">Chords</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/tabs?page=1">Tabs</a>
+      </li>
+      {{#user.role}}
+      <li class="nav-item">
+        <a class="nav-link" href="/users?page=1">Users</a>
+      </li>
+      {{/user.role}}
+      {{/user}}
+      <li class="nav-item">
+        <a class="nav-link" href="/about">About</a>
+      </li>
+    </ul>
+    {{#user.login}}
+    <button class="btn btn-outline-secondary my-1 mr-2" onclick="location.href='/profile/{{user.id}}'">{{user.login}}</button>
+    <button class="btn btn-outline-secondary my-1 mr-2" onclick="location.href='/auth/logout'" type="submit">Log out</button>
+    {{/user.login}}
+    {{^user.login}}
+    <button class="btn btn-outline-secondary my-1 mr-2" onclick="location.href='/auth/register'" type="submit">Sign up</button>
+    <button class="btn btn-outline-secondary my-1 mr-2" onclick="location.href='/auth/login'" type="submit">Log in</button>
+    {{/user.login}}
+  </div>
+</nav>

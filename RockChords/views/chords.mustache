@@ -1,0 +1,65 @@
+{{>head}}
+<script src="/javascripts/script1.js"></script>
+<link rel="stylesheet" href="stylesheets/style.css">
+
+<body style="background-color: #dde1e6">
+  <div class="page" style="background-color: #dde1e6">
+    {{>header}}
+    <div class="container" style="margin-top:100px">
+      <form action="/chords">
+        <div class="input-group my-1">
+          <div class="input-group-prepend">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </div>
+          <input type="search" name="byFilter" class="form-control" placeholder="Enter chord name..." aria-label="" aria-label="Search">
+        </div>
+      </form>
+      {{^chords.length}}
+      <span>
+        It seems this chord doesn`t exist yet :(
+      </span>
+      {{/chords.length}}
+      {{#user.role}}
+      <button class="btn btn-outline-secondary my-1 mr-2" onclick="location.href='/chords/new'">Add new</button>{{/user.role}}
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <h1 class="display-5">{{title}}</h1>
+          {{#chords}}
+          <div class="list-group list-group-flush">
+            <div class="list-group-item list-group-item-action">
+              <img width="100" height="100" class="my-2 ml-2 center-cropped float-left" src={{imageUrl}}>
+              <div class="float-left mt-13 ml-3">
+                <div class="mt-3">{{name}}</div>
+                <button class="btn btn-outline-secondary my-1 mr-2" onclick="location.href=`/chords/{{id}}`">View more</button>
+              </div>
+            </div>
+          </div>
+          {{/chords}}
+          <div class="text-center">
+              <div class="btn-group btn-group mt-4" role="group" aria-label="Page switcher">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                <a class='messages-nav-button' href="/chords?page={{prevPage}}" name="page" value={{prevPage}}>
+                  <button type="button" onclick="location.href='/chords'" class="btn btn-outline-secondary">
+                    Previous</button></a>
+                  <!-- {{#items}}
+              <button type="button'" class="btn btn-outline-secondary">{{.}}</button>
+              <!-- <li class="btn-group btn-group mt-4"><a class="page-link" href="/chords?page={{.}}">{{.}}</a></li> -->
+                  <!--  {{/items}} -->
+                  {{#items}}
+                  <!-- <li class="btn-group btn-group mt-4"> -->
+                  <a class='messages-nav-button' href="/chords?page={{.}}"></a>
+                  </li>
+                  <button type="button" onclick="location.href='/chords?page={{.}}'" class="btn btn-outline-secondary">{{.}}</button>
+                  {{/items}}
+                  <a class='messages-nav-button' href="/chords?page={{nextPage}}" name="page" value={{nextPage}}>
+                    <button type="button" onclick="location.href='/chords'" class="btn btn-outline-secondary">Next</button></a>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        </div>
+      </div>
+</body>
+</div>
+</body>

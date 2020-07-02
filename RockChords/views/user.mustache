@@ -1,0 +1,113 @@
+{{>head}}
+<script src="/javascripts/script1.js"></script>
+<link rel="stylesheet" href="stylesheets/style.css">
+
+<body style="background-color: #dde1e6">
+    <div class="page" style="background-color: #dde1e6">
+        {{>header}}
+        <!-- </div>
+            <div class="content">
+            <div class="card">
+                <img id="ava" src= {{user.avaUrl}} alt= "User">
+                <div class="userInfo">
+                <b> {{user.fullname}}</b><br><br>
+                Role: {{user.role}} <br>
+                Login: {{user.login}}<br>
+                Date of registration: {{user.registrationDate}}<br>
+                </div>
+            </div>
+            <div class="deleteChord">
+            <form action="/users/{{user._id}}/delete"  method="POST">
+            <button type="submit">Delete</button>
+            </form>
+            </div>   
+             <div class="newChord">
+            <form action="/users/{{user._id}}/update">
+            <button type="submit">Update</button>
+            </div> -->
+        <div class="container" style="margin-top:100px">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <div class="row">
+                        <div class="col">
+                            <h1 class="display-4 float-left">{{userRequired.login}}</h1>
+                        </div>
+                        <div class="col">
+                            <!-- <form action="/users/{{userRequired._id}}/delete" method="POST" enctype="multipart/form-data">
+                                <input type="hidden" name="deleted" value="5c0bd7601cf9d00016176b1b">
+                                <button class="btn btn-outline-danger my-3 float-right" type="submit">Delete</button>
+                            </form> -->
+                            {{#user.role}}
+                            <button class="btn btn-outline-danger float-right" data-toggle="modal" data-target="#exampleModal">
+                                Delete
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Wait!</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Are you sure?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form action="/users/{{userRequired._id}}/delete" method="POST" enctype="multipart/form-data">
+                                                <input type="hidden" name="deleted" value="5c0bd7601cf9d00016176b1b">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                <button class="btn btn-outline-danger" type="submit">Delete</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <form action="/users/{{userRequired._id}}/setAdmin" method="GET" enctype="multipart/form-data">
+                                <input type="hidden" name="updated" value="5c0bd7601cf9d00016176b1b">
+                                <button class="btn btn-outline float-right" type="submit">Set admin</button>
+                            </form>
+                            {{/user.role}}
+                        </div>
+                    </div>
+
+                    <div class="row my-2 row justify-content-center">
+                        <div class="col-4">
+                            <img width="300" height="300" class="my-4 center-cropped rounded-circle" src={{userRequired.imageUrl}} alt="User">
+                        </div>
+                        <!-- <div class="col md-auto ml-3">
+                            <div class="mt-4">Full name: {{userRequired.fullname}}</div>
+                            <div class="mt-4">Role: {{userRequired.role}}</div>
+                            <div class="mt-4">Date of registration: {{userRequired.registrationDate}}</div>
+                        </div> -->
+                        <div class="col md-auto ml-3">
+                            <form action="/users/{{userRequired._id}}/update" method="POST" enctype="multipart/form-data">
+                                <div class="form-group my-4">
+                                    <label>Login</label>
+                                    <input type="text" name="login" class="form-control" value={{userRequired.login}}>
+                                </div>
+                                <div class="form-group my-4">
+                                    <label>Full name</label>
+                                    <input type="text" name="fullname" class="form-control" value={{userRequired.fullname}}>
+                                </div>
+                                <div class="form-group">Role
+                                    <p class="text-success">{{userRequired.role}}</p>
+                                </div>
+                                {{#user.role}}
+                                <label>Select new avatar</label>
+                                <div class="custom-file">
+                                    <input type="file" name="image" class="custom-file-input" id="customFile">
+                                    <label class="custom-file-label" for="customFile">Choose new picture...</label>
+                                </div>
+                                <button class="btn btn-outline" type="submit">Update</button>
+                                <button class="btn btn-outline " type="reset">Reset</button>
+                                <form>
+                                {{/user.role}}
+                        </div>
+                    </div>
+
+        </div>
+</body>
+
+</html>
